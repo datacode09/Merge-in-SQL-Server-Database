@@ -1,0 +1,322 @@
+/* [dbo].[Department]*/
+IF(SELECT count(*) from [dbo].[Department] WHERE [name] = 'testing Department1' AND [pid] = 1 ) > 0 
+BEGIN
+	UPDATE   [dbo].[Department]
+	SET  [description] = 'testing Department description',
+	[Status] = 1 ,
+	[Managetype] = 1 
+	WHERE [name] = 'testing Department1' AND [pid] = 1
+END 
+ELSE 
+BEGIN 
+	INSERT into [dbo].[Department]
+	(
+		[name]
+		,[description]
+		,[pid]
+		,[Status]
+		,[Managetype]
+	)
+	VALUES
+	(
+		'testing Department1',
+		'testing Department description',
+		1,
+		1,
+		1
+	)
+END 
+
+/*[dbo].[MailBox] */
+
+
+IF(SELECT count(*) from [dbo].[MailBox] WHERE [FolderID] = 1 AND  [Name] = 'testing name' ) > 0 
+BEGIN
+	UPDATE [dbo].[MailBox]
+	SET  
+	[MailBoxID] 	=	1,
+    [Description]	=	      'testing description'
+    ,[InEmailAddress]	=	      'test'
+    ,[OutEmailAddress]	=	      'test'
+    ,[MailSource]	=	      1
+    ,[Pop3Server]	=	      'test'
+    ,[Pop3User]	=	      'test'
+    ,[Pop3Pass]	=	      'test'
+    ,[OutSmtpServer]	=	      'test'
+    ,[MaxMsgSize]	=	      1
+    ,[MaxNumAttach]	=	      1
+    ,[MaxAttachSize]	=	      1
+    ,[Attr]	=	     1
+    ,[DeletedFlag]	=	      1
+    ,[Priority]	=	      1
+    ,[Script]	=	      'test'
+    ,[AutoReply]	=	      'test'
+    ,[ThreshValue]	=	      1
+    ,[ThreshColor]	=	      'test'
+    ,[SmtpUser]	=	      'test'
+    ,[SmtpPass]	=	      'test'
+    ,[ReplyScript]	=	      'test'
+    ,[Status]	=	      1
+    ,[ip]	=	    'test'
+    ,[attr2]	=	      1
+    ,[FriendlyName]	=	      'test'
+    ,[Managetype]	=	      1
+    ,[MCALScript]	=	      'test'
+    ,[EnableSurvey]	=	      1
+    ,[SurveyID]	=	      1
+    ,[SurveyText]	=	      'test'
+    ,[Pop3Imap4SecurityMode]	=	      1
+    ,[Pop3Imap4CertCheck]	=	      1
+    ,[SmtpSecurityMode]	=	      1
+    ,[SmtpCertCheck]	=	      1
+	WHERE [FolderID] = 1 AND  [Name] = 'testing name'
+END 
+ELSE 
+BEGIN 
+	INSERT INTO [dbo].[MailBox]
+	(	
+		[MailBoxID] ,
+		[FolderID]
+      ,[Name]
+      ,[Description]
+      ,[InEmailAddress]
+      ,[OutEmailAddress]
+      ,[MailSource]
+      ,[Pop3Server]
+      ,[Pop3User]
+      ,[Pop3Pass]
+      ,[OutSmtpServer]
+      ,[MaxMsgSize]
+      ,[MaxNumAttach]
+      ,[MaxAttachSize]
+      ,[Attr]
+      ,[DeletedFlag]
+      ,[Priority]
+      ,[Script]
+      ,[AutoReply]
+      ,[ThreshValue]
+      ,[ThreshColor]
+      ,[SmtpUser]
+      ,[SmtpPass]
+      ,[ReplyScript]
+      ,[Status]
+      ,[ip]
+      ,[attr2]
+      ,[FriendlyName]
+      ,[Managetype]
+      ,[MCALScript]
+      ,[EnableSurvey]
+      ,[SurveyID]
+      ,[SurveyText]
+      ,[Pop3Imap4SecurityMode]
+      ,[Pop3Imap4CertCheck]
+      ,[SmtpSecurityMode]
+      ,[SmtpCertCheck]
+  )
+  VALUES
+  (		
+	1,
+		1
+      ,'testing name'
+      ,'testing description'
+      ,'test'
+      ,'test'
+      ,1
+      ,'test'
+      ,'test'
+      ,'test'
+      ,'test'
+      ,1
+      ,1
+      ,1
+      ,1
+      ,1
+      ,1
+      ,'test'
+      ,'test'
+      ,1
+      ,'test'
+      ,'test'
+      ,'test'
+      ,'test'
+      ,1
+      ,'test'
+      ,1
+      ,'test'
+      ,1
+      ,'test'
+      ,1
+      ,1
+      ,'test'
+      ,1
+      ,1
+      ,1
+      ,1
+  )
+
+END 
+
+/*[dbo].[MailboxDepartments] */
+
+IF(SELECT count(*) from [dbo].[MailboxDepartments] WHERE [MailboxID] = 1 AND [DepartmentID] = 1 ) > 0 
+BEGIN
+	UPDATE   [dbo].[MailboxDepartments]
+	SET [MailboxID] = 1 ,
+	[DepartmentID] = 1
+	WHERE [MailboxID] = 1 AND [DepartmentID] = 1
+END 
+ELSE 
+BEGIN 
+	INSERT INTO [dbo].[MailboxDepartments]
+	(
+		[MailboxID]
+		,[DepartmentID]
+	)
+	VALUES
+	(
+		1,
+		1
+	)
+END 
+
+
+/*[dbo].[Position]*/
+
+
+IF(SELECT count(*) from [dbo].[Position] WHERE [name] = 'testing name' AND [department] = 1 ) > 0 
+BEGIN
+	UPDATE   [dbo].[Position]
+	SET [description] = ''
+    ,[pid] = 1
+    ,[Status] =1
+	WHERE [name] = 'testing name' AND [department] = 1
+END 
+ELSE 
+BEGIN 
+	INSERT INTO [dbo].[Position]
+	(
+		[name]
+		,[description]
+		,[department]
+		,[pid]
+		,[Status]
+	)
+	VALUES
+	(
+		'testing name'
+		,'testing'
+		,1
+		,1
+		,1
+	)
+END 
+
+
+/*[dbo].[Users]*/
+
+IF(SELECT count(*) from  [dbo].[Users] WHERE [LoginName] = 'testing name' ) > 0 
+BEGIN
+	UPDATE   [dbo].[Users]
+	SET [Status]	=	1
+    ,[DisplayName]	=	      'testing'
+    ,[FirstName]	=	      'testing'
+    ,[LastName]	=	      'testing'
+    ,[Password]	=	      'testing'
+    ,[PhotoUrl]	=	      'testing'
+    ,[Active]	=	      1
+    ,[SigFlag]	=	      1
+    ,[Signature]	=	      'testing'
+    ,[PhoneSettings]	=	      1
+    ,[MaxChatSessions]	=	      1
+    ,[MaxEmail]	=	      1
+    ,[PhoneExt]	=	      1
+    ,[PhoneAgentData]	=	      1
+    ,[PhoneLogicalAgent]	=	      1
+    ,[PhoneAgentGroup]	=	      1
+    ,[PhonePosition]	=	      1
+    ,[DisabledTime]	=	      getdate()
+    ,[Managetype]	=	      1
+    ,[VoipUser]	=	      'testing'
+    ,[VoipPass]	=	      'testing'
+    ,[VoipExt]	=	      'testing'
+    ,[MCALAgentID]	=	     1
+    ,[NotificationEmailName]	=	      'testing'
+    ,[NotificationDomainID]	=	      1
+    ,[EnableAMN]	=	      1
+    ,[PwdRequiresChange]	=	      1
+    ,[PwdModifiedDate]	=	      getdate()
+    ,[PwdFailAttemptCount]	=	      1
+    ,[PwdFailAttemptModifiedDate]	=	      getdate()
+	WHERE [LoginName] = 'testing name'
+END 
+ELSE 
+BEGIN 
+	INSERT INTO [dbo].[Users]
+  (
+	[Status]
+      ,[LoginName]
+      ,[DisplayName]
+      ,[FirstName]
+      ,[LastName]
+      ,[Password]
+      ,[PhotoUrl]
+      ,[Active]
+      ,[SigFlag]
+      ,[Signature]
+      ,[PhoneSettings]
+      ,[MaxChatSessions]
+      ,[MaxEmail]
+      ,[PhoneExt]
+      ,[PhoneAgentData]
+      ,[PhoneLogicalAgent]
+      ,[PhoneAgentGroup]
+      ,[PhonePosition]
+      ,[DisabledTime]
+      ,[Managetype]
+      ,[VoipUser]
+      ,[VoipPass]
+      ,[VoipExt]
+      ,[MCALAgentID]
+      ,[NotificationEmailName]
+      ,[NotificationDomainID]
+      ,[EnableAMN]
+      ,[PwdRequiresChange]
+      ,[PwdModifiedDate]
+      ,[PwdFailAttemptCount]
+      ,[PwdFailAttemptModifiedDate]
+  )
+  VALUES
+  (
+		1
+      ,'testing name'
+      ,'testing'
+      ,'testing'
+      ,'testing'
+      ,'testing'
+      ,'testing'
+      ,1
+      ,1
+      ,'testing'
+      ,1
+      ,1
+      ,1
+      ,1
+      ,1
+      ,1
+      ,1
+      ,1
+      ,getdate()
+      ,1
+      ,'testing'
+      ,'testing'
+      ,'testing'
+      ,1
+      ,'testing'
+      ,1
+      ,1
+      ,1
+      ,getdate()
+      ,1
+      ,getdate()
+  )
+END 
